@@ -6,35 +6,85 @@
   import AnimLogo from "../Componentes/AnimLogo"; // Importamos un componente personalizado que muestra una animación del logo.
   import BackgroundSVG from "../Componentes/BackgroundSVG"; // Importamos un fondo en forma de dibujo SVG.
   import LogoOficial from "../Componentes/LogoOficial";
+  import { useTheme } from "next-themes";
 
-  
+    const phrases = [ // Esta es una lista de frases que van cambiando en pantalla.
+      "Pagina En Construcción",
+      "Diseñamos realidades digitales que transforman negocios",
+      "Evolucionamos contigo, la tecnología no espera",
+      "Creamos soluciones que generan impacto.",
+      "Damos tu punto de partida hacia un cambio digital.",
+    ];
+  const phraseToType = "//reliable development software";
   const Hero = () => { // Aquí comienza nuestro componente llamado Hero.
+    const { theme } = useTheme(); // detecta si es dark o light
+
+    // Define los colores para cada modo
+    const color2 = theme === "dark" ? "#ffffff" : "#0400FD"; // blanco en dark, azul en light
+    const color3 = theme === "dark" ? "#ffffff" : "#103E94"; // gris claro en dark, azul más oscuro en light
+    const [step, setStep] = useState(0);
     
+  
+    const [typedText, setTypedText] = useState("");
+    
+      // Máquina de escribir frase inicial
+      useEffect(() => {
+        if (step === 1 && typedText.length < phraseToType.length) {
+          const timeout = setTimeout(() => {
+            setTypedText(phraseToType.slice(0, typedText.length + 1));
+          }, 60);
+          return () => clearTimeout(timeout);
+        }
+    
+        if (step === 1 && typedText.length === phraseToType.length) {
+          setTimeout(() => setStep(2), 50);
+        }
+      }, [typedText, step]);
+    
+      // Inicio automático
+        useEffect(() => {
+          const timer = setTimeout(() => setStep(1), 800);
+          return () => clearTimeout(timer);
+        }, []);
+
+        const [introDone, setIntroDone] = useState(false); // Estado que indica si terminó la animación de entrada.
+
+        const [index, setIndex] = useState(0); // Estado que guarda cuál frase se está mostrando.
+        
+            useEffect(() => {
+              if (!introDone) return; // Si la introducción no ha terminado, no hacemos nada aún.
+        
+              const timeout = setTimeout(() => {
+                setIndex((prev) => (prev + 1) % phrases.length); // Cambia a la siguiente frase cada 3 segundos. Vuelve al inicio si llega al final.
+              }, 5000);
+        
+              return () => clearTimeout(timeout); // Limpia el temporizador para evitar errores.
+            }, [index, introDone]); // Se activa cada vez que cambia el índice o cuando termina la intro.
 
     return (
       <section
         id="home"
         className="relative z-10 pb-2 mb-20 pt-[120px] md:pb-[20px] md:pt-[100px] xl:pb-[10px] xl:pt-[120px] 2xl:pb-[20px] 2xl:pt-[220px]"
       >
-        {/* Aquí mostramos el logo con la animación */}
-        
-        {/* Aquí comienza el contenido que se muestra después de la animación */}
-        
-          <div className="mx-auto max-w-[800px] text-center">
            
-                <LogoOficial />
+          <div className="mx-auto max-w-[800px] text-center">
+
+           
+                <LogoOficial color2={color2} color3={color3} />
               <div className="flex flex-row items-center justify-center space-x-4">
                 <br />
                 <br />
                 <br />
 
               </div>
-              <h1 className="mb-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-black dark:text-white sm:leading-tight md:leading-tight">
-                Pagina En Construcción {/* Frase fuerte que impacta. */}
-              </h1>
-              <h2 className="mb-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-black dark:text-white sm:leading-tight md:leading-tight">
-                Se vienen Cositas {/* Frase fuerte que impacta. */}
-              </h2>
+            {/* Máquina de escribir */}
+              {step === 1 && (
+                <div className="text-black font-Arial text-4xl">
+                  {typedText}
+                  <span className="animate-pulse">|</span>
+                </div>
+              )}
+             
           
 
             {/* Aquí es donde van cambiando las frases una por una */}
@@ -54,7 +104,11 @@
                 }}  
               />
               <div className="relative z-20 flex items-center justify-center min-h-[120px] w-full">
-             
+                <div className="relative z-20 flex items-center justify-center min-h-[120px] w-full">
+                                <span className="text-3xl sm:text-3xl md:text-xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400 transition-all duration-[2000ms] ease-in-out">
+                                  {phrases[index]} {/* Muestra la frase actual de la lista */}
+                                </span>
+                              </div>
               </div>
             </div>
           </div>

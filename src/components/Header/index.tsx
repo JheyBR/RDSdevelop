@@ -6,8 +6,16 @@ import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
   import LogoOficial from "../Componentes/LogoOficial";
+import { useTheme } from "next-themes"; // Importamos el hook useTheme para manejar el tema (oscuro o claro)
 
 const Header = () => {
+
+  const { theme } = useTheme(); // detecta si es dark o light
+  
+      // Define los colores para cada modo
+      const color2 = theme === "dark" ? "#ffffff" : "#0400FD"; // blanco en dark, azul en light
+      const color3 = theme === "dark" ? "#ffffff" : "#103E94"; // gris claro en dark, azul más oscuro en light
+
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
@@ -57,7 +65,7 @@ const Header = () => {
                   sticky ? "py-1 lg:py-1" : "py-1"
                 } `}
               >
-                <LogoOficial />
+                <LogoOficial color2={color2} color3={color3}  />
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">

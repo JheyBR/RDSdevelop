@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
+  import LogoOficial from "../Componentes/LogoOficial";
 
 const Header = () => {
   // Navbar toggle
@@ -56,21 +57,7 @@ const Header = () => {
                   sticky ? "py-1 lg:py-1" : "py-1"
                 } `}
               >
-                <Image
-                  src="/images/logo/lOGORDS-2025.png"
-                  alt="logo"
-                  width={40}
-                  height={10}
-                  className="w-full dark:hidden"
-                />
-                <Image
-                  
-                  src="/images/logo/lOGORDS-2025.png"
-                  alt="logo"
-                  width={40}
-                  height={10}
-                  className="hidden w-full dark:block"
-                />
+                <LogoOficial />
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">

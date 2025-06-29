@@ -59,14 +59,14 @@ const Header = () => {
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
             <div className="w-35 max-w-full px-4 xl:mr-12">
-              <Link
-                href="/"
-                className={`header-logo block w-full ${
-                  sticky ? "py-1 lg:py-1" : "py-1"
-                } `}
-              >
-                <LogoOficial color2={color2} color3={color3}  />
-              </Link>
+                <Link
+                  href="/"
+                  className={`header-logo block w-full ${
+                    sticky ? "py-1 lg:py-1" : "py-1"
+                  } `}
+                >
+                  <LogoOficial color2={color2} color3={color3}  />
+                </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">
               <div>

@@ -1,34 +1,34 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import LogoOficial from "../Componentes/LogoOficial";
+import { useTheme } from "next-themes";
 
 const Footer = () => {
+
+   const { theme } = useTheme(); // detecta si es dark o light
+    
+        // Define los colores para cada modo
+  const color2 = theme === "dark" ? "#ffffff" : "#0400FD"; // blanco en dark, azul en light
+  const color3 = theme === "dark" ? "#ffffff" : "#103E94"; // gris claro en dark, azul más oscuro en light
+
   return (
     <>
       <footer className="relative z-10 bg-white pt-16 dark:bg-gray-dark md:pt-20 lg:pt-24">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
-              <div className="mb-12 max-w-[360px] lg:mb-16">
-                <Link href="/" className="mb-8 inline-block">
-                  <Image
-                    src="/images/logo/logo-2.svg"
-                    alt="logo"
-                    className="w-full dark:hidden"
-                    width={140}
-                    height={30}
-                  />
-                  <Image
-                    src="/images/logo/logo.svg"
-                    alt="logo"
-                    className="hidden w-full dark:block"
-                    width={140}
-                    height={30}
-                  />
-                </Link>
-                <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer lobortis.
+              <div className="mb-12 max-w-[360px] lg:mb-16 flex flex-col items-center text-center">
+                <div className="w-50 mb-3 pl-10 max-w-full xl:mr-12">
+                  <Link
+                    href="/"
+                                      
+                    >
+                    <LogoOficial color2={color2} color3={color3}  />
+                  </Link>
+                </div>
+                <p className="mb-9 text-sm text-base leading-relaxed text-body-color dark:text-body-color-dark">
+                  "Evolucionamos contigo, la tecnología no espera"
                 </p>
                 <div className="flex items-center">
                   <a
@@ -47,28 +47,6 @@ const Footer = () => {
                     >
                       <path
                         d="M12.1 10.4939V7.42705C12.1 6.23984 13.085 5.27741 14.3 5.27741H16.5V2.05296L13.5135 1.84452C10.9664 1.66676 8.8 3.63781 8.8 6.13287V10.4939H5.5V13.7183H8.8V20.1667H12.1V13.7183H15.4L16.5 10.4939H12.1Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </a>
-                  <a
-                    href="/"
-                    aria-label="social-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
-                  >
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M13.9831 19.25L9.82094 13.3176L4.61058 19.25H2.40625L8.843 11.9233L2.40625 2.75H8.06572L11.9884 8.34127L16.9034 2.75H19.1077L12.9697 9.73737L19.6425 19.25H13.9831ZM16.4378 17.5775H14.9538L5.56249 4.42252H7.04674L10.808 9.6899L11.4584 10.6039L16.4378 17.5775Z"
                         fill="currentColor"
                       />
                     </svg>
@@ -112,7 +90,7 @@ const Footer = () => {
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Useful Links
+                  Servicios
                 </h2>
                 <ul>
                   <li>
@@ -120,7 +98,7 @@ const Footer = () => {
                       href="/blog"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Blog
+                      Desarrollo Web
                     </Link>
                   </li>
                   <li>
@@ -128,7 +106,7 @@ const Footer = () => {
                       href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Pricing
+                      Desarrollo Software
                     </Link>
                   </li>
                   <li>
@@ -136,7 +114,7 @@ const Footer = () => {
                       href="/about"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      About
+                      WIS - SaaS
                     </Link>
                   </li>
                 </ul>
@@ -146,7 +124,7 @@ const Footer = () => {
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Terms
+                  Compañia
                 </h2>
                 <ul>
                   <li>
@@ -154,7 +132,7 @@ const Footer = () => {
                       href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      TOS
+                      Acerca de RDS
                     </Link>
                   </li>
                   <li>
@@ -162,7 +140,7 @@ const Footer = () => {
                       href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Privacy Policy
+                      RDS Kids - Escuela de Programación
                     </Link>
                   </li>
                   <li>
@@ -170,9 +148,10 @@ const Footer = () => {
                       href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Refund Policy
+                      Blog Informativo
                     </Link>
                   </li>
+                  
                 </ul>
               </div>
             </div>
@@ -180,7 +159,7 @@ const Footer = () => {
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Support & Help
+                  Ayuda
                 </h2>
                 <ul>
                   <li>
@@ -188,7 +167,7 @@ const Footer = () => {
                       href="/contact"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Open Support Ticket
+                      Abrir un Ticket de Soporte
                     </Link>
                   </li>
                   <li>
@@ -196,17 +175,18 @@ const Footer = () => {
                       href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Terms of Use
+                      Cotiza con Nosotros
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/about"
+                      href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      About
+                      Terminos y Condiciones
                     </Link>
                   </li>
+                 
                 </ul>
               </div>
             </div>
@@ -214,24 +194,24 @@ const Footer = () => {
 
           <div className="h-px w-full bg-linear-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
           <div className="py-8">
-            <p className="text-center text-base text-body-color dark:text-white">
-              Template by{" "}
+            <p className="text-xs text-center text-base text-body-color dark:text-white">
+              Desarrollado por {" "}
               <a
                 href="http://uideck.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
               >
-                UIdeck
+                RDS
               </a>{" "}
-              and{" "}
+              -{" "}
               <a
                 href="https://nextjstemplates.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
               >
-                Next.js Templates
+                Reliable Development Software - v0.0.1 - 2025
               </a>
             </p>
           </div>

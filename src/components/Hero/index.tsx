@@ -5,6 +5,7 @@
   import { useTheme } from "next-themes";
 
     const phrases = [ 
+      "Pagina en Construcción",
       "Diseñamos realidades digitales que transforman negocios",
       "Evolucionamos contigo, la tecnología no espera",
       "Creamos soluciones que generan impacto.",

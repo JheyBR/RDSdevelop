@@ -1,22 +1,17 @@
-  "use client"; // Esto le dice a Next.js que este componente se ejecuta del lado del cliente (navegador).
-
-  // Importamos cosas necesarias para que el componente funcione:
-  import React, { useEffect, useState } from "react"; // React es para construir interfaces. useEffect y useState son herramientas especiales que nos ayudan a manejar el tiempo y cambios.
-  import Image from "next/image"; // Esto sirve para cargar imágenes de forma optimizada en Next.js.
-  import AnimLogo from "../Componentes/AnimLogo"; // Importamos un componente personalizado que muestra una animación del logo.
-  import BackgroundSVG from "../Componentes/BackgroundSVG"; // Importamos un fondo en forma de dibujo SVG.
+  "use client"; 
+  import React, { useEffect, useState } from "react"; 
+  import BackgroundSVG from "../Componentes/BackgroundSVG"; 
   import LogoOficial from "../Componentes/LogoOficial";
   import { useTheme } from "next-themes";
 
-    const phrases = [ // Esta es una lista de frases que van cambiando en pantalla.
-      "Pagina En Construcción",
+    const phrases = [ 
       "Diseñamos realidades digitales que transforman negocios",
       "Evolucionamos contigo, la tecnología no espera",
       "Creamos soluciones que generan impacto.",
       "Damos tu punto de partida hacia un cambio digital.",
     ];
   const phraseToType = "//reliable development software";
-  const Hero = () => { // Aquí comienza nuestro componente llamado Hero.
+  const Hero = () => { 
     const { theme } = useTheme(); // detecta si es dark o light
 
     // Define los colores para cada modo

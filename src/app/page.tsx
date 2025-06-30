@@ -23,12 +23,12 @@ export default function Home() {
     <>
      
       <Hero />
-      {/*<Who/>
-      <Features />
-      <AboutSectionOne />
-      <AboutSectionTwo />
-      <Blog />
-      <Testimonials />
+      <Who/>
+      {/*<Features />*/}
+      {/*<AboutSectionOne />*/}
+      {/*<AboutSectionTwo />*/}
+      {/*<Blog />*/}
+      {/*<Testimonials />*/}
       {/*<Pricing />
       <Contact />*/}
     </>

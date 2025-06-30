@@ -14,9 +14,9 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="relative z-10 bg-white pt-16 dark:bg-gray-dark md:pt-20 lg:pt-24">
-        <div className="container">
-          <div className="-mx-4 flex flex-wrap">
+      <footer className="relative z-10 bg-white pt-2 dark:bg-black __className_d65c78 md:pt-7 lg:pt-9 xl:pt-12">
+        <div className="container mt-5 pt-2">
+          <div className="-mx-4 flex flex-wrap h-auto justify-start pb-1">
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
               <div className="mb-12 max-w-[360px] lg:mb-16 flex flex-col items-center text-center">
                 <div className="w-50 mb-3 pl-10 max-w-full xl:mr-12">
@@ -87,18 +87,18 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
+            <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Servicios
+                  Ayuda
                 </h2>
                 <ul>
                   <li>
                     <Link
-                      href="/blog"
+                      href="/contact"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Desarrollo Web
+                      Abrir un Ticket de Soporte
                     </Link>
                   </li>
                   <li>
@@ -106,21 +106,21 @@ const Footer = () => {
                       href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Desarrollo Software
+                      Cotiza con Nosotros
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/about"
+                      href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      WIS - SaaS
+                      Terminos y Condiciones
                     </Link>
                   </li>
+                 
                 </ul>
               </div>
             </div>
-
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
@@ -156,18 +156,18 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
+          <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Ayuda
+                  Servicios
                 </h2>
                 <ul>
                   <li>
                     <Link
-                      href="/contact"
+                      href="/blog"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Abrir un Ticket de Soporte
+                      Desarrollo Web
                     </Link>
                   </li>
                   <li>
@@ -175,21 +175,21 @@ const Footer = () => {
                       href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Cotiza con Nosotros
+                      Desarrollo Software
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/about"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Terminos y Condiciones
+                      WIS - SaaS
                     </Link>
                   </li>
-                 
                 </ul>
               </div>
             </div>
+
           </div>
 
           <div className="h-px w-full bg-linear-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
@@ -197,7 +197,7 @@ const Footer = () => {
             <p className="text-xs text-center text-base text-body-color dark:text-white">
               Desarrollado por {" "}
               <a
-                href="http://uideck.com"
+                href="http://rdsdevelop.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
@@ -206,7 +206,7 @@ const Footer = () => {
               </a>{" "}
               -{" "}
               <a
-                href="https://nextjstemplates.com"
+                href="http://rdsdevelop.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"

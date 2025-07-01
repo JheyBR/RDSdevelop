@@ -156,3 +156,35 @@ layer(base);
     @apply inline-flex;
   }
 }
+.fade-all-edges {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 70%, transparent 80%), 
+                      linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-composite: intersect;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%), 
+               linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.fade-horizontal-edges {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.fade-edges {
+  -webkit-mask-image: radial-gradient(ellipse at center, black 70%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, black 70%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.text-stroke {
+  color: #ffffff;
+  -webkit-text-stroke: 1px #0303b5; /* ancho y color del borde */
+  text-stroke: 20px #0303b5;
+}

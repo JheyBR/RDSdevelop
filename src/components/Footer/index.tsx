@@ -195,7 +195,7 @@ const Footer = () => {
           <div className="h-px w-full bg-linear-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
           <div className="py-8">
             <p className="text-xs text-center text-base text-body-color dark:text-white">
-              Desarrollado por {" "}
+              Desarrollado por 
               <a
                 href="http://rdsdevelop.com"
                 target="_blank"
@@ -203,8 +203,8 @@ const Footer = () => {
                 className="hover:text-primary"
               >
                 RDS
-              </a>{" "}
-              -{" "}
+              </a>
+              -
               <a
                 href="http://rdsdevelop.com"
                 target="_blank"

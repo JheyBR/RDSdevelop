@@ -1,120 +1,116 @@
-  "use client"; 
-  import React, { useEffect, useState } from "react"; 
-  import BackgroundSVG from "../Componentes/BackgroundSVG"; 
-  import LogoOficial from "../Componentes/LogoOficial";
-  import { useTheme } from "next-themes";
+"use client";
+import React, { useEffect, useState } from "react";
+import BackgroundSVG from "../Componentes/BackgroundSVG";
+import LogoOficial from "../Componentes/LogoOficial";
+import { useTheme } from "next-themes";
+import { motion, AnimatePresence } from "framer-motion";
 
-    const phrases = [ 
-      "Pagina en Construcción",
-      "Diseñamos realidades digitales que transforman negocios",
-      "Evolucionamos contigo, la tecnología no espera",
-      "Creamos soluciones que generan impacto.",
-      "Damos tu punto de partida hacia un cambio digital.",
-    ];
-  const phraseToType = "//reliable development software";
-  const Hero = () => { 
-    const { theme } = useTheme(); // detecta si es dark o light
+const phrases = [
+  "Pagina en Construcción",
+  "Diseñamos realidades digitales que transforman negocios",
+  "Evolucionamos contigo, la tecnología no espera",
+  "Creamos soluciones que generan impacto.",
+  "Damos tu punto de partida hacia un cambio digital.",
+];
 
-    // Define los colores para cada modo
-    const color2 = theme === "dark" ? "#ffffff" : "#0400FD"; // blanco en dark, azul en light
-    const color3 = theme === "dark" ? "#ffffff" : "#103E94"; // gris claro en dark, azul más oscuro en light
-    const [step, setStep] = useState(0);
-    
-  
-    const [typedText, setTypedText] = useState("");
-    
-      // Máquina de escribir frase inicial
-      useEffect(() => {
-        if (step === 1 && typedText.length < phraseToType.length) {
-          const timeout = setTimeout(() => {
-            setTypedText(phraseToType.slice(0, typedText.length + 1));
-          }, 60);
-          return () => clearTimeout(timeout);
-        }
-    
-        if (step === 1 && typedText.length === phraseToType.length) {
-          setTimeout(() => setStep(2), 50);
-        }
-      }, [typedText, step]);
-    
-      // Inicio automático
-        useEffect(() => {
-          const timer = setTimeout(() => setStep(1), 800);
-          return () => clearTimeout(timer);
-        }, []);
+const phraseToType = "//reliable development software";
 
-        const [introDone, setIntroDone] = useState(false); // Estado que indica si terminó la animación de entrada.
+const Hero = () => {
+  const { theme } = useTheme(); // Detecta si es dark o light
 
-        const [index, setIndex] = useState(0); // Estado que guarda cuál frase se está mostrando.
-        
-            useEffect(() => {
-              if (!introDone) return; // Si la introducción no ha terminado, no hacemos nada aún.
-        
-              const timeout = setTimeout(() => {
-                setIndex((prev) => (prev + 1) % phrases.length); // Cambia a la siguiente frase cada 3 segundos. Vuelve al inicio si llega al final.
-              }, 5000);
-        
-              return () => clearTimeout(timeout); // Limpia el temporizador para evitar errores.
-            }, [index, introDone]); // Se activa cada vez que cambia el índice o cuando termina la intro.
+  const color2 = theme === "dark" ? "#ffffff" : "#0400FD";
+  const color3 = theme === "dark" ? "#ffffff" : "#103E94";
 
-    return (
-      <section
-        id="home"
-        className="relative z-10 pb-2 mb-20 pt-[120px] md:pb-[20px] md:pt-[100px] xl:pb-[10px] xl:pt-[120px] 2xl:pb-[20px] 2xl:pt-[220px]"
-      >
-           
-          <div className="mx-auto max-w-[800px] text-center">
+  const [step, setStep] = useState(0);
+  const [typedText, setTypedText] = useState("");
+  const [introDone, setIntroDone] = useState(false);
+  const [index, setIndex] = useState(0);
 
-           
-                <LogoOficial color2={color2} color3={color3} />
-              <div className="flex flex-row items-center justify-center space-x-4">
-                <br />
-                <br />
-                <br />
+  // Máquina de escribir frase inicial
+  useEffect(() => {
+    if (step === 1 && typedText.length < phraseToType.length) {
+      const timeout = setTimeout(() => {
+        setTypedText(phraseToType.slice(0, typedText.length + 1));
+      }, 60);
+      return () => clearTimeout(timeout);
+    }
 
-              </div>
-            {/* Máquina de escribir */}
-              {step === 1 && (
-                <div className="text-black font-Arial text-4xl">
-                  {typedText}
-                  <span className="animate-pulse">|</span>
-                </div>
-              )}
-             
-          
+    if (step === 1 && typedText.length === phraseToType.length) {
+      setTimeout(() => {
+        setStep(2);
+        setIntroDone(true); // ✅ Aquí se activa la rotación de frases
+      }, 500);
+    }
+  }, [typedText, step]);
 
-            {/* Aquí es donde van cambiando las frases una por una */}
-            <div className="relative mt-10 mb-12 min-h-[120px] flex items-center justify-center">
-              <div
-                className="absolute z-10 rounded-full pointer-events-none"
-                style={{
-                  width: "1500px", // Un fondo grande con forma de halo o luz.
-                  height: "100px",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  filter: "blur(45px)", // Borroso para que parezca una luz suave.
-                  background:
-                    "radial-gradient(circle at center, rgba(4, 0, 253, 0.85) 0%, rgba(16, 62, 148, 0.4) 30%, transparent 100%)",
-                  opacity: 0.9,
-                }}  
-              />
-              <div className="relative z-20 flex items-center justify-center min-h-[120px] w-full">
-                <div className="relative z-20 flex items-center justify-center min-h-[120px] w-full">
-                                <span className="text-3xl sm:text-3xl md:text-xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400 transition-all duration-[2000ms] ease-in-out">
-                                  {phrases[index]} {/* Muestra la frase actual de la lista */}
-                                </span>
-                              </div>
-              </div>
-            </div>
+  // Inicio automático
+  useEffect(() => {
+    const timer = setTimeout(() => setStep(1), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Cambia frases cada 5 segundos una vez termina intro
+  useEffect(() => {
+    if (!introDone) return;
+    const timeout = setTimeout(() => {
+      setIndex((prev) => (prev + 1) % phrases.length);
+    }, 5000);
+    return () => clearTimeout(timeout);
+  }, [index, introDone]);
+
+  const textClass =
+  theme === "dark"
+    ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400"
+    : "text-[#35f]";
+
+  return (
+    <section
+      id="home"
+      className="relative z-10 pb-2 mb-20 pt-[120px] md:pb-[10px] md:pt-[50px] xl:pb-[10px] xl:pt-[60px] 2xl:pb-[20px] 2xl:pt-[220px]"
+    >
+      <div className="mx-auto max-w-[1000px] text-center">
+        <LogoOficial color2={color2} color3={color3} />
+
+            {/* Frases rotativas */}
+        <div className="relative mt-35 mb-12 min-h-[120px] flex items-center justify-center">
+          <div
+            className="absolute z-10 rounded-full pointer-events-none"
+            style={{
+              width: "1500px",
+              height: "100px",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              filter: "blur(45px)",
+              background:
+                "radial-gradient(circle at center, rgba(4, 0, 253, 0.85) 0%, rgba(16, 62, 148, 0.4) 30%, transparent 100%)",
+              opacity: 0.9,
+            }}
+          />
+          <div className="relative z-20 flex items-center justify-center min-h-[120px] w-full">
+            <AnimatePresence mode="wait">
+              <motion.span
+                className={`text-3xl sm:text-3xl md:text-xl lg:text-3xl font-bold ${textClass}`}
+                key={index}
+                initial={{ opacity: 0, scale: 0.6, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.6, y: -20 }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeInOut",
+                }}
+                  
+              >
+                {phrases[index]}
+              </motion.span>
+            </AnimatePresence>
           </div>
-        
-        <BackgroundSVG /> {/* Fondo decorativo en forma de SVG */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          
         </div>
-      </section>
-    );
-  };
+      </div>
 
-  export default Hero; // Exportamos el componente para que se pueda usar en otras partes.
+      <BackgroundSVG />
+    </section>
+  );
+};
+
+export default Hero;

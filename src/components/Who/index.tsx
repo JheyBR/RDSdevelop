@@ -28,7 +28,7 @@ export default function Who() {
                   </h1>
                 </div>
 
-                <div className="mx-auto max-w-[900px] text-center w-full px-4">
+                {/*<div className="mx-auto max-w-[900px] text-center w-full px-4">
                   <p className="mb-12 text-base leading-relaxed! text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
                     En RDS, no solo desarrollamos software y páginas web. Diseñamos soluciones inteligentes que transforman tu empresa desde adentro hacia un futuro digital más ágil, eficiente y rentable.
                   </p>
@@ -41,7 +41,7 @@ export default function Who() {
                   <p className="mb-12 text-base leading-relaxed! text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
                     Porque no solo creamos sistemas, creamos transformación real.
                   </p>
-                </div>
+                </div>*/}
             </div>
           </div>
         <BackgroundSVG2 /> {/* Fondo decorativo en forma de SVG */}

@@ -29,33 +29,30 @@ const ConstructionScreen = () => {
   }, [codeLines]);
 
   return (
-    <div className="computer-screen">
-      <div className="computer-frame">
-        <div className="screen">
-          <div className="screen-header">
-            <div className="buttons">
-              <span className="close"></span>
-              <span className="minimize"></span>
-              <span className="maximize"></span>
-            </div>
-            <div className="title">index.html - Visual Studio Code</div>
-          </div>
-          <div className="code-area">
-            {codeLines.map((line, index) => (
-              <div key={index} className="code-line">
-                <span className="line-number">{index + 1}</span>
-                <span className="code">{line}</span>
-              </div>
-            ))}
-            {!completed && <div className="cursor">|</div>}
-            {completed && (
-              <div className="construction-message">
-                <p>🚧 Estamos trabajando duro para traerte algo increíble 🚧</p>
-              </div>
-            )}
-          </div>
+    <div className="computer-screen" style={{ width: '700px' }}>
+      <div className="screen">
+        <div className="screen-header">
+        <div className="buttons">
+          <span className="close"></span>
+          <span className="minimize"></span>
+          <span className="maximize"></span>
         </div>
-        <div className="keyboard"></div>
+        <div className="title">index.html - Visual Studio Code</div>
+        </div>
+        <div className="code-area">
+        {codeLines.map((line, index) => (
+          <div key={index} className="code-line">
+          <span className="line-number">{index + 1}</span>
+          <span className="code">{line}</span>
+          </div>
+        ))}
+        {!completed && <div className="cursor">|</div>}
+        {completed && (
+          <div className="construction-message">
+          <p>🚧 Estamos trabajando duro para traerte algo increíble 🚧</p>
+          </div>
+        )}
+        </div>
       </div>
     </div>
   );

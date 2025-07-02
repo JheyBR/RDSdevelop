@@ -10,11 +10,16 @@ import { useTheme } from "next-themes"; // Importamos el hook useTheme para mane
 
 const Header = () => {
 
-  const { theme } = useTheme(); // detecta si es dark o light
-  
-      // Define los colores para cada modo
-      const color2 = theme === "dark" ? "#ffffff" : "#0400FD"; // blanco en dark, azul en light
-      const color3 = theme === "dark" ? "#ffffff" : "#103E94"; // gris claro en dark, azul más oscuro en light
+  const [mounted, setMounted] = useState(false);
+   const { theme } = useTheme(); // detecta si es dark o light
+    
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+   const currentTheme = mounted ? theme : "dark";
+   const color2 = currentTheme === "dark" ? "#ffffff" : "#0400FD";
+   const color3 = currentTheme === "dark" ? "#ffffff" : "#103E94";
 
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);

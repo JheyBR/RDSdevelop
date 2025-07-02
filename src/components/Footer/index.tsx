@@ -3,14 +3,21 @@ import Image from "next/image";
 import Link from "next/link";
 import LogoOficial from "../Componentes/LogoOficial";
 import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
 
 const Footer = () => {
-
+  const [mounted, setMounted] = useState(false);
    const { theme } = useTheme(); // detecta si es dark o light
     
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+   const currentTheme = mounted ? theme : "dark";
+   const color2 = currentTheme === "dark" ? "#ffffff" : "#0400FD";
+   const color3 = currentTheme === "dark" ? "#ffffff" : "#103E94";
         // Define los colores para cada modo
-  const color2 = theme === "dark" ? "#ffffff" : "#0400FD"; // blanco en dark, azul en light
-  const color3 = theme === "dark" ? "#ffffff" : "#103E94"; // gris claro en dark, azul más oscuro en light
+ 
 
   return (
     <>

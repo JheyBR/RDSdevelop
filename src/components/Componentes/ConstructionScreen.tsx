@@ -52,7 +52,7 @@ const ConstructionScreen = ({ loop = true, delayBetweenLoops = 2000 }) => {
       clearInterval(timer);
       clearTimeout(timeout);
     };
-  }, [codeLines, loop, delayBetweenLoops, restartAnimation]);
+  }, [codeLines, loop, delayBetweenLoops, restartAnimation, codeSnippets]);
 
   return (
     <div className="flex justify-center items-center p-4">

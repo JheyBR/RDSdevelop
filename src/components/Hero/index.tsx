@@ -5,6 +5,7 @@ import LogoOficial from "../Componentes/LogoOficial";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import ConstructionScreen from "../Componentes/ConstructionScreen";
+import Image from 'next/image';
 
 const phrases = [
   "Diseñamos realidades digitales que transforman negocios",
@@ -134,7 +135,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
               >
                 <div className="flex flex-colum items-center justify-center mb-2 text-black dark:text-white">
-                  <img
+                  <Image
                     src={currentTheme === "dark" ? "/images/logo/LogoWhatsAppDark.png" : "/images/logo/LogoWhatsAppWhite.png"}
                     alt="Whatsapp"
                     className="w-7 h-7 mb-1 mr-1"

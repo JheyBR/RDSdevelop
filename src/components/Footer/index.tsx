@@ -16,7 +16,7 @@ const Footer = () => {
    const currentTheme = mounted ? theme : "dark";
    const color2 = currentTheme === "dark" ? "#ffffff" : "#0400FD";
    const color3 = currentTheme === "dark" ? "#ffffff" : "#103E94";
-        // Define los colores para cada modo
+
  
 
   return (
@@ -35,7 +35,7 @@ const Footer = () => {
                   </Link>
                 </div>
                 <p className="mb-9 text-sm text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  "Evolucionamos contigo, la tecnología no espera"
+                  'Evolucionamos contigo, la tecnología no espera'
                 </p>
                 <div className="flex items-center">
                   <a

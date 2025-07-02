@@ -25,9 +25,14 @@ const ConstructionScreen = ({ loop = true, delayBetweenLoops = 2000 }) => {
     setCompleted(false);
   }, []);
 
-  useEffect(() => {
+useEffect(() => {
     let timer;
     let timeout;
+
+    // Mueve codeSnippets dentro del efecto si es constante
+    const codeSnippets = [
+        // tus snippets aquí...
+    ];
 
     const startTyping = () => {
       timer = setInterval(() => {
@@ -52,7 +57,7 @@ const ConstructionScreen = ({ loop = true, delayBetweenLoops = 2000 }) => {
       clearInterval(timer);
       clearTimeout(timeout);
     };
-  }, [codeLines, loop, delayBetweenLoops, restartAnimation, codeSnippets]);
+  }, [codeLines, loop, delayBetweenLoops, restartAnimation]); // Elimina codeSnippets de las dependencias
 
   return (
     <div className="flex justify-center items-center p-4">

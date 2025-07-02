@@ -35,7 +35,7 @@ const Footer = () => {
                   </Link>
                 </div>
                 <p className="mb-9 text-sm text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  'Evolucionamos contigo, la tecnología no espera'
+                  Evolucionamos contigo, la tecnología no espera
                 </p>
                 <div className="flex items-center">
                   <a

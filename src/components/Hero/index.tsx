@@ -90,6 +90,40 @@ const Hero = () => {
             </div>
           </div>
 
+            {/* Contacto */}
+              <h1>Contactanos</h1>
+            <div className="flex justify-center">
+            <div className="mt-5 mb-5 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-8xl">
+              <a
+              href="https://api.whatsapp.com/send?phone=+573022221304&text=Hola!%20Quiero%20mas%20informaci%C3%B3n%20sobre%20el%20servicio%20de%20Desarrollo%20de%20Paginas%20WEB"
+              className="flex flex-col items-center bg-white dark:bg-gray-900 rounded-lg shadow-md p-4 hover:scale-105 transition-transform"
+              target="_blank" rel="noopener noreferrer"
+              >
+                <p className="mb-2 font-semibold text-center">Desarrollo de Paginas WEB</p>
+                <img src="/images/logo/LogoWhatsAppDark.png" alt="Whatsapp" className="w-12 h-12 mb-2" />
+               
+              </a>
+              <a
+              href="https://api.whatsapp.com/send?phone=+573022221304&text=Hola!%20Quiero%20mas%20informaci%C3%B3n%20sobre%20el%20servicio%20de%20Desarrollo%20de%20Software%20propio"
+              className="flex flex-col items-center bg-white dark:bg-gray-900 rounded-lg shadow-md p-4 hover:scale-105 transition-transform"
+              target="_blank" rel="noopener noreferrer"
+              >
+                <p className="mb-2 font-semibold text-center">Desarrollo de Software</p>
+                <img src="/images/logo/LogoWhatsAppDark.png" alt="Whatsapp" className="w-12 h-12 mb-2" />
+          
+              </a>
+              <a
+              href="https://api.whatsapp.com/send?phone=+573022221304&text=Hola!%20Quiero%20mas%20informaci%C3%B3n%20sobre%20WIS.%20"
+              className="flex flex-col items-center bg-white dark:bg-gray-900 rounded-lg shadow-md p-4 hover:scale-105 transition-transform"
+              target="_blank" rel="noopener noreferrer"
+              >
+                <p className="mb-2 font-semibold text-center">WIS - Gestiona tu Pymes</p>
+                <img src="/images/logo/LogoWhatsAppDark.png" alt="Whatsapp" className="w-12 h-12 mb-2" />
+              
+              </a>
+            </div>
+            </div>
+
           {/* Frases rotativas */}
           <div className="relative mt-5 mb-10 min-h-[120px] flex items-center justify-center">
             <div

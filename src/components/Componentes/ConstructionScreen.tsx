@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import './ConstructionScreen.css';
 
 const ConstructionScreen = ({ loop = true, delayBetweenLoops = 2000 }) => {
   const [codeLines, setCodeLines] = useState([]);
@@ -56,45 +55,30 @@ const ConstructionScreen = ({ loop = true, delayBetweenLoops = 2000 }) => {
   }, [codeLines, loop, delayBetweenLoops, restartAnimation]);
 
   return (
-    <div className="computer-screen">
-      <div className="screen" 
-           style={{ 
-            width: '700px', 
-            minWidth: '700px', 
-            maxWidth: '700px', 
-            height: '440px', 
-            minHeight: '440px', 
-            maxHeight: '440px', 
-            boxSizing: 'border-box' }}>
-        <div className="screen-header">
-          <div className="buttons">
-            <span className="close"></span>
-            <span className="minimize"></span>
-            <span className="maximize"></span>
+    <div className="flex justify-center items-center p-4">
+      <div className="bg-gray-900 rounded-lg overflow-hidden shadow-xl 
+                     w-full lg:w-[700px] lg:min-w-[700px] lg:max-w-[700px] 
+                     h-auto lg:h-[440px] lg:min-h-[440px] lg:max-h-[440px] 
+                     border border-gray-700">
+        <div className="bg-gray-800 p-2 flex items-center">
+          <div className="flex space-x-2 mr-3">
+            <span className="w-3 h-3 rounded-full bg-red-500"></span>
+            <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+            <span className="w-3 h-3 rounded-full bg-green-500"></span>
           </div>
-          <div className="title">index.html - Visual Studio Code</div>
+          <div className="text-gray-300 text-sm">index.html - Visual Studio Code</div>
         </div>
-        <div className="code-area">
+        <div className="p-4 font-mono text-sm overflow-y-auto h-full">
           {codeLines.map((line, index) => (
-            <div key={index} className="code-line" style={{ 
-              color: index % 3 === 0 && index !== 0 && index < 10 ? '#e830ce' : '#2ef8a0', 
-              fontFamily: 'monospace', 
-              fontSize: '15px' 
-            }}>
-              <span className="line-number">{index + 1}</span>
-              <span className="code" style={{ whiteSpace: 'pre' }}>{line}</span>
+            <div key={index} className={`flex ${index % 3 === 0 && index !== 0 && index < 10 ? 'text-pink-500' : 'text-green-400'}`}>
+              <span className="w-8 text-gray-500 select-none">{index + 1}</span>
+              <span className="whitespace-pre">{line}</span>
             </div>
           ))}
-          {!completed && <div className="cursor">|</div>}
+          {!completed && <div className="text-green-400 animate-blink">|</div>}
           {completed && (
-            <div className="construction-message">
-              <p style={{ 
-                color: '#00fff6', 
-                fontFamily: 'monospace', 
-                fontSize: '15px' 
-              }}>
-                🚧 Estamos trabajando duro para traerte algo increíble 🚧
-              </p>
+            <div className="mt-4 text-center text-cyan-400">
+              🚧 Estamos trabajando duro para traerte algo increíble 🚧
             </div>
           )}
         </div>

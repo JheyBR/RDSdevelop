@@ -82,19 +82,21 @@ const Hero = () => {
 
       <div className="mx-auto max-w-[1000px] text-center">
           {/* Logo y Pagina en construcción en una fila de dos columnas */}
-          <div className="flex flex-row items-center justify-center gap-8 mb-4">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 mb-4">
             {/* Logo RDS */}
-            <div className="flex-shrink-0 flex justify-center">
-              <div className="mt-5 mb-5 w-150 h-auto">
+            <div className="flex-shrink-0 flex justify-center order-1 md:order-none">
+              <div className="mt-5 mb-5 w-[400px] h-auto">
                 <LogoOficial color2={color2} color3={color3} />
               </div>
             </div>
             {/* Pagina en construcción */}
-            <div>
-              <h1 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl text-black dark:text-white ">
+            <div className="order-2 md:order-none">
+              <h1 className="text-xl sm:text-2xl lg:text-2xl xl:text-2xl text-black dark:text-white text-center lg:text-left">
                 {step === 0 ? "//" : typedText}
               </h1>
-              <ConstructionScreen loop={true} delayBetweenLoops={3000} />
+               <div className="mt-4">
+                 <ConstructionScreen loop={true} delayBetweenLoops={3000} />
+               </div>
             </div>
           </div>
 

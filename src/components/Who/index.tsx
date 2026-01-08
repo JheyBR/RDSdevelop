@@ -73,18 +73,18 @@ export default function Who() {
             alt="Equipo RDS"
             width={1920}
             height={200}
-            className="w-full h-[100px] object-cover rounded-xl"
+            className="w-full h-[100px] object-cover rounded-xl opacity-25  fade-all-edges"
             priority
           />
-          <h1 className="absolute inset-0 flex items-center justify-center px-6 text-white text-xl md:text-4xl font-bold leading-tight">
+          <h1 className="absolute inset-0 flex items-center justify-center px-6 text-center text-white font-bold leading-tight text-[clamp(1.5rem,3vw,1.5rem)]">
             “La mayoría de los negocios no tienen un problema digital.
             <br /> Tienen un problema de enfoque.”
           </h1>
         </div>
 
         {/* Intro */}
-        <div className="max-w-4xl mx-auto text-center mb-20">
-          <p className="text-lg md:text-xl font-medium text-body-color dark:text-body-color-dark">
+        <div className="max-w-4xl mx-auto text-center mb-10">
+          <p className="lg:text-xl md:text-xl font-medium text-body-color dark:text-body-color-dark">
             Páginas que no convierten, sistemas que no escalan y decisiones
             tecnológicas sin dirección.
             <br />
@@ -104,7 +104,7 @@ export default function Who() {
                 key={i}
                 onClick={() => setOpenIndex(isOpen ? null : i)}
                 className="group relative cursor-pointer rounded-xl border border-blue-500/40 
-                bg-white/80 dark:bg-[#181a2a]/80 p-8 transition-all duration-300
+                bg-white/80 dark:bg-[#181a2a]/80 p-6 transition-all duration-300
                 hover:shadow-xl hover:-translate-y-1"
               >
                 {/* Glow hover */}
@@ -123,7 +123,7 @@ export default function Who() {
                     {card.tag}
                   </span>
 
-                  <h3 className={`mt-2 text-2xl font-bold ${titleClass}`}>
+                  <h3 className={`mt-2 text-xl font-bold ${titleClass}`}>
                     {card.title}
                   </h3>
 

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import featuresData from "./featuresData";
+import Image from "next/image";
 
 const Features = () => {
   const [active, setActive] = useState(0);
@@ -10,13 +11,24 @@ const Features = () => {
       <div className="container max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="mb-20 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
+        <div className="relative mb-16 text-center">
+          <Image
+            src="/images/who/BannerPC.jpeg"
+            alt="Equipo RDS"
+            width={1920}
+            height={200}
+            className="w-full h-[100px] object-cover rounded-xl opacity-25  fade-all-edges"
+            priority
+          />
+          <h2 className="absolute inset-0 flex items-center justify-center px-6 text-center text-white font-bold leading-tight text-[clamp(1.5rem,3vw,1.5rem)]">
             Cómo trabajamos
+          <br />Diseñamos sistemas con intención. Sin improvisación.
           </h2>
-          <p className="text-lg text-body-color">
-            Diseñamos sistemas con intención. Sin improvisación.
-          </p>
+          
+        </div>
+
+        <div className="mb-20 text-center">
+          
         </div>
 
         {/* Layout */}

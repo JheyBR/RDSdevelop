@@ -1,155 +1,171 @@
 "use client";
 
-import VideoModal from "@/components/video-modal";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import SectionTitle from "../Common/SectionTitle";
-import BackgroundSVG2 from "../Componentes/BackgroundSVG2";
 import { useTheme } from "next-themes";
+import BackgroundSVG2 from "../Componentes/BackgroundSVG2";
+
+const cards = [
+  {
+    tag: "PROBLEMA",
+    title: "Tu web no vende.",
+    subtitle: "Y no es por el diseño.",
+    details: `Creamos páginas y landing pages pensadas
+para una sola cosa: convertir.
+
+Nada de plantillas genéricas.
+Nada de adornos innecesarios.
+Solo estructura, mensaje y conversión.`,
+  },
+  {
+    tag: "ESCALA",
+    title: "Procesos que te frenan.",
+    subtitle: "Cuando el negocio crece pero el sistema no.",
+    details: `Diseñamos software a la medida
+para automatizar y ordenar tu operación.
+
+Menos trabajo manual.
+Menos errores.
+Más control real.`,
+  },
+  {
+    tag: "ESTRATEGIA",
+    title: "Lo genérico no funciona.",
+    subtitle: "Porque tu negocio no es genérico.",
+    details: `No adaptamos tu negocio a una herramienta.
+Adaptamos la herramienta a tu negocio.
+
+Arquitectura clara.
+Decisiones técnicas con sentido.`,
+  },
+  {
+    tag: "FUTURO",
+    title: "La brecha empieza temprano.",
+    subtitle: "Y se paga caro después.",
+    details: `Con RDS Kids formamos pensamiento lógico
+y criterio tecnológico desde la base.
+
+No para consumir tecnología.
+Para crearla.`,
+  },
+];
 
 export default function Who() {
-  const [isOpen, setOpen] = useState(false);
-
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
-    const { theme } = useTheme();
-  
-    // Evitar renderizado hasta que el componente esté montado
-    useEffect(() => {
-      setMounted(true);
-    }, []);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-   const currentTheme = mounted ? theme : "dark";
+  useEffect(() => setMounted(true), []);
+  const currentTheme = mounted ? theme : "dark";
 
-  const color2 = currentTheme === "dark" ? "#ffffff" : "var(--color-logo2)";
-  const color3 = currentTheme === "dark" ? "#ffffff" : "var(--color-logo1)";
-
-  const textClass =
-  currentTheme === "dark"
-    ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400"
-    : "text-[#35f]"; 
+  const titleClass =
+    currentTheme === "dark"
+      ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300"
+      : "text-[#355CFF]";
 
   return (
-    <>
-        <section className="relative z-10 ">
-          <div className="container">
-            <div className=" flex flex-wrap">
-                <div className="relative w-full mb-5 align-items-center justify-center text-center">
-                  <Image
-                    src="/images/who/BannerPC.jpeg"
-                    alt="Equipo de profesionales de RDS colaborando frente a computadoras en una oficina moderna y luminosa, ambiente de trabajo enfocado y positivo, fondo con elementos tecnológicos y decorativos"
-                    width={1920}
-                    height={100}
-                    priority
-                    className="w-full h-[100px] object-cover md:h-[180px] lg:h-[200px] fade-all-edges "
-                  />
-                  <h1 className="absolute inset-0 flex items-center justify-center px-4 text-white font-bold leading-tight sm:text-4xl md:text-5xl">
-                    “Impulsamos tu negocio con realidades digitales.”
-                  </h1>
-                </div>               
-                
-                <div className="w-full px-4">
-                  <div className="mx-auto max-w-[1200px] text-center w-full px-4">
-                    <div className="relative flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 mb-4 mt-10">
-                      {/* Fondo blur azul alineado a la izquierda */}
-                      <div className="relative z-10">
-                        <div
-                          className="absolute z-0 rounded-full pointer-events-none"
-                          style={{
-                            width: "1800px",
-                            height: "80px",
-                            top: "40%",
-                            left: "-50px",
-                            transform: "translateY(-50%)",
-                            filter: "blur(60px)",
-                            background:
-                              "radial-gradient(circle at left, rgba(4, 0, 253, 0.85) 0%, rgba(16, 62, 148, 0.4) 30%, transparent 100%)",
-                            opacity: 0.9,
-                          }}
-                        />
-                        <p className="mb-12 font-bold text-base leading-relaxed! text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                          En RDS, no solo desarrollamos software y páginas web. Realizamos soluciones inteligentes que transforman tu empresa  hacia un futuro digital.
-                        </p>
-                      </div>
-                      <div className="relative mx-auto mb-8 w-full max-w-[350px]">
-                        <div
-                          className="absolute inset-0 rounded-lg pointer-events-none"
-                          style={{
-                            filter: "blur(30px)",
-                            background:
-                              "radial-gradient(circle at center, rgba(4, 0, 253, 0.85) 0%, rgba(16, 62, 148, 0.4) 60%, transparent 100%)",
-                            opacity: 0.7,
-                            zIndex: 0,
-                          }}
-                        />
-                        <Image
-                          src="/images/who/developerWho.jpeg"
-                          alt="Imagen de un equipo de profesionales de RDS trabajando en un proyecto de software, con pantallas que muestran código y gráficos, ambiente colaborativo y tecnológico"
-                          width={100}
-                          height={100}
-                          className="relative rounded-lg object-cover w-full"
-                          style={{ zIndex: 1 }}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 mb-15 mt-10">
-                      <h2 className={`text-3xl sm:text-3xl md:text-xl lg:text-3xl font-bold ${textClass}`}>
-                        Vamos más allá de lo técnico. Analizamos tus desafíos, diseñamos contigo cada paso y entregamos resultados medibles.
-                      </h2>
-                    </div>
-                    <div className="flex flex-col lg:flex-row items-stretch justify-center gap-4 lg:gap-8 mb-4">
-                      {/* Tarjeta 1 */}
-                      <div className="relative group flex-1 min-w-[380px] max-w-[600px] flex flex-col justify-between bg-white dark:bg-[#181a2a] bg-opacity-80 dark:bg-opacity-80 rounded-lg shadow-lg overflow-hidden transition-all duration-300 border border-blue-500">
-                      <div
-                        className="absolute inset-0 pointer-events-none transition-all duration-300 opacity-0 group-hover:opacity-100"
-                        style={{
-                        filter: "blur(24px)",
-                        background:
-                          "radial-gradient(circle at center, rgba(4, 0, 253, 0.15) 0%, rgba(16, 62, 148, 0.08) 60%, transparent 100%)",
-                        zIndex: 0,
-                        }}
-                      />
-                      <p className="relative mb-6 text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl p-6 z-10">
-                        Te adaptas, o desapareces. Transformamos tu negocio desde las entrañas. Es el inicio de tu revolución digital.
-                      </p>
-                      <div className="w-full px-4 mb-5">
-                        <button className="rounded-lg bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark w-full">
-                        🔥 Quiero transformar mi negocio
-                        </button>
-                      </div>
-                      </div>
-                      {/* Tarjeta 2 */}
-                      <div className="relative group flex-1 min-w-[380px] max-w-[600px] flex flex-col justify-between bg-white dark:bg-[#181a2a] bg-opacity-80 dark:bg-opacity-80 rounded-lg shadow-lg overflow-hidden transition-all duration-300 border border-blue-500">
-                      <div
-                        className="absolute inset-0 pointer-events-none transition-all duration-300 opacity-0 group-hover:opacity-100"
-                        style={{
-                        filter: "blur(24px)",
-                        background:
-                          "radial-gradient(circle at center, rgba(4, 0, 253, 0.15) 0%, rgba(16, 62, 148, 0.08) 60%, transparent 100%)",
-                        zIndex: 0,
-                        }}
-                      />
-                      <p className="relative mb-6 text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl p-6 z-10">
-                        Cada línea de código es parte de una estrategia, tu crecimiento, porque no solo creamos sistemas, creamos transformación en presencia.
-                      </p>
-                      <div className="w-full px-4 mb-5">
-                        <button className="rounded-lg bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark w-full">
-                        💡 Muéstrame cómo lo hacen
-                        </button>
-                      </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 mb-4">
+    <section className="relative z-10">
+      <div className="container mx-auto px-4">
+        {/* Banner */}
+        <div className="relative mb-16 text-center">
+          <Image
+            src="/images/who/BannerPC.jpeg"
+            alt="Equipo RDS"
+            width={1920}
+            height={200}
+            className="w-full h-[100px] object-cover rounded-xl"
+            priority
+          />
+          <h1 className="absolute inset-0 flex items-center justify-center px-6 text-white text-xl md:text-4xl font-bold leading-tight">
+            “La mayoría de los negocios no tienen un problema digital.
+            <br /> Tienen un problema de enfoque.”
+          </h1>
+        </div>
+
+        {/* Intro */}
+        <div className="max-w-4xl mx-auto text-center mb-20">
+          <p className="text-lg md:text-xl font-medium text-body-color dark:text-body-color-dark">
+            Páginas que no convierten, sistemas que no escalan y decisiones
+            tecnológicas sin dirección.
+            <br />
+            <span className="font-bold">
+              Nada de eso se soluciona improvisando.
+            </span>
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {cards.map((card, i) => {
+            const isOpen = openIndex === i;
+
+            return (
+              <div
+                key={i}
+                onClick={() => setOpenIndex(isOpen ? null : i)}
+                className="group relative cursor-pointer rounded-xl border border-blue-500/40 
+                bg-white/80 dark:bg-[#181a2a]/80 p-8 transition-all duration-300
+                hover:shadow-xl hover:-translate-y-1"
+              >
+                {/* Glow hover */}
+                <div
+                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition"
+                  style={{
+                    filter: "blur(30px)",
+                    background:
+                      "radial-gradient(circle at bottom, rgba(53,92,255,0.25), transparent 70%)",
+                  }}
+                />
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <span className="text-xs tracking-widest text-blue-500 font-bold">
+                    {card.tag}
+                  </span>
+
+                  <h3 className={`mt-2 text-2xl font-bold ${titleClass}`}>
+                    {card.title}
+                  </h3>
+
+                  <p className="mt-2 text-body-color dark:text-body-color-dark">
+                    {card.subtitle}
+                  </p>
+
+                  {/* Expand */}
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ${
+                      isOpen ? "max-h-96 mt-6" : "max-h-0"
+                    }`}
+                  >
+                    <div className="border-l-2 border-blue-500 pl-4 text-sm leading-relaxed text-body-color dark:text-body-color-dark whitespace-pre-line">
+                      {card.details}
                     </div>
                   </div>
+
+                  <p className="mt-4 text-sm text-blue-500 font-medium">
+                    {isOpen ? "Ocultar detalle ↑" : "Ver cómo lo resolvemos →"}
+                  </p>
                 </div>
-            </div>
-          </div>
-        <BackgroundSVG2 /> {/* Fondo decorativo en forma de SVG */}
-          
-        </section>
-    </>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* CTA final */}
+        <div className="mt-24 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            La tecnología no es el problema.
+            <br />
+            <span className={titleClass}>La improvisación sí.</span>
+          </h2>
+
+          <p className="mt-6 text-lg font-medium text-blue-500 cursor-pointer hover:underline">
+            Analizar tu escenario →
+          </p>
+        </div>
+      </div>
+
+      <BackgroundSVG2 />
+    </section>
   );
-};
-
-
-{/*<h2 className="mb-30 text-xl font-bold leading-tight text-black dark:text-white sm:leading-tight  md:leading-tight">*/}
+}

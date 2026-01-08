@@ -140,7 +140,7 @@ const Construction = () => {
                     />
                   <h1> Contactanos</h1>
                 </div>
-                <h2 className="text-black dark:text-white text-xl">+57 302 222 13 04</h2>
+                <h2 className="text-black dark:text-white text-xl">+57 350 753 53 69</h2>
               </a>
             </div>
       </div>

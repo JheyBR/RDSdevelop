@@ -1,15 +1,49 @@
 "use client";
-import { useState } from "react";
+
 import featuresData from "./featuresData";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import {
+  Search,
+  Layers,
+  Code2,
+  RefreshCcw,
+} from "lucide-react";
 
 const Features = () => {
   const [active, setActive] = useState(0);
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [openDetail, setOpenDetail] = useState(false);
+  
+  const stepIcons = [
+                      Search,      // Diagnóstico
+                      Layers,      // Arquitectura
+                      Code2,       // Desarrollo
+                      RefreshCcw,  // Iteración
+                    ];
+
+  useEffect(() => setMounted(true), []);
+  const currentTheme = mounted ? theme : "dark";
+
+  const titleClass =
+    currentTheme === "dark"
+      ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300"
+      : "text-[#355CFF]"; 
 
   return (
-    <section id="process" className="relative py-28 overflow-hidden">
+    <section id="process" className="relative py-20 overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6">
-
+        {/* Intro */}
+        <div className="mt-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-15">
+            Antes de escribir una línea de código,
+hay decisiones que
+            <br />
+            <span className={titleClass}> no se pueden saltar.</span>
+          </h2>
+        </div>
         {/* Header */}
         <div className="relative mb-16 text-center">
           <Image
@@ -21,10 +55,10 @@ const Features = () => {
             priority
           />
           <h2 className="absolute inset-0 flex items-center justify-center px-6 text-center text-white font-bold leading-tight text-[clamp(1.5rem,3vw,1.5rem)]">
-            Cómo trabajamos
+            ¿Cómo trabajamos?
           <br />Diseñamos sistemas con intención. Sin improvisación.
           </h2>
-          
+
         </div>
 
         <div className="mb-20 text-center">
@@ -42,10 +76,20 @@ const Features = () => {
               <button
                 key={feature.id}
                 onClick={() => setActive(index)}
-                className={`group relative mb-10 flex items-start gap-6 text-left transition-all ${
-                  active === index ? "opacity-100" : "opacity-60 hover:opacity-100"
-                }`}
+                className={`group relative mb-8 w-full text-left rounded-xl border 
+                border-blue-500/40 bg-white/80 dark:bg-[#181a2a]/80 
+                p-4  transition-all duration-300
+                hover:-translate-y-1 hover:shadow-xl
+                ${active === index ? "ring-2 ring-blue-500/60" : ""}`}
               >
+                <div
+                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition"
+                  style={{
+                    filter: "blur(30px)",
+                    background:
+                      "radial-gradient(circle at bottom, rgba(53,92,255,0.25), transparent 70%)",
+                  }}
+                />
                 {/* Dot */}
                 <span
                   className={`mt-2 h-3 w-3 rounded-full transition-all ${
@@ -56,40 +100,72 @@ const Features = () => {
                 />
 
                 {/* Text */}
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-blue-500 mb-1">
+                <div className="relative z-10 flex gap-4 items-start">
+                  {/* Number */}
+                  <span className="text-4xl font-bold text-blue-500/10 select-none">
                     0{index + 1}
-                  </p>
-                  <h3 className="text-xl font-semibold text-black dark:text-white">
-                    {feature.title}
-                  </h3>
+                  </span>
+
+                  {/* Text */}
+                  <div>
+                    <p className="text-xs tracking-widest text-blue-500 font-bold mb-1">
+                      PASO
+                    </p>
+
+                    <h3 className="text-lg font-semibold text-black dark:text-white">
+                      {feature.title}
+                    </h3>
+                  </div>
                 </div>
               </button>
             ))}
           </div>
 
           {/* RIGHT — Dynamic Panel */}
-          <div className="relative rounded-3xl border border-blue-500/20 bg-white dark:bg-[#0b0f1a] p-12 shadow-[0_30px_80px_rgba(0,0,0,0.15)] transition-all">
+          <div className="flex flex-col justify-center items-center relative z-10">
+            {/* Icon */}
+            <div className="mb-6 flex justify-start">
+              <div className=" text-blue-400">
+                {(() => {
+                  const Icon = stepIcons[active];
+                  return <Icon size={90} strokeWidth={1.5} />;
+                })()}
+              </div>
+            </div>            
+            <div className="group relative rounded-xl border border-blue-500/40 
+              bg-white/80 dark:bg-[#181a2a]/80 p-10 
+              transition-all duration-300
+              hover:shadow-xl">
 
-            <h3 className="text-3xl font-bold text-black dark:text-white mb-6">
-              {featuresData[active].title}
-            </h3>
+              <div
+                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition"
+                style={{
+                  filter: "blur(40px)",
+                  background:
+                    "radial-gradient(circle at bottom, rgba(53,92,255,0.25), transparent 70%)",
+                }}
+              />  
+              
+              <h3 className="text-3xl font-bold text-black dark:text-white mb-6">
+                {featuresData[active].title}
+              </h3>
 
-            <p className="text-lg text-body-color leading-relaxed mb-10">
-              {featuresData[active].paragraph}
-            </p>
+              <p className="text-lg text-body-color leading-relaxed mb-10">
+                {featuresData[active].paragraph}
+              </p>
 
-            <p className="text-sm uppercase tracking-widest text-blue-500/70">
-              {active === 0 && "El software sin contexto es solo gasto."}
-              {active === 1 && "La tecnología sin estrategia no escala."}
-              {active === 2 && "El código también comunica orden."}
-              {active === 3 && "Lo estable también evoluciona."}
-            </p>
+              <p className="text-sm uppercase tracking-widest text-blue-500/70">
+                {active === 0 && "El software sin contexto es solo gasto."}
+                {active === 1 && "La tecnología sin estrategia no escala."}
+                {active === 2 && "El código también comunica orden."}
+                {active === 3 && "Lo estable también evoluciona."}
+              </p>
+            </div>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-28 text-center">
+        <div className="mt-15 text-center">
           <p className="text-3xl font-semibold text-black dark:text-white mb-4">
             ¿Tu sistema necesita orden?
           </p>

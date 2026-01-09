@@ -16,6 +16,7 @@ para una sola cosa: convertir.
 Nada de plantillas genéricas.
 Nada de adornos innecesarios.
 Solo estructura, mensaje y conversión.`,
+    cta: "¿Por qué no está vendiendo?",
   },
   {
     tag: "ESCALA",
@@ -27,6 +28,7 @@ para automatizar y ordenar tu operación.
 Menos trabajo manual.
 Menos errores.
 Más control real.`,
+    cta: "¿Por qué el sistema no escala?",
   },
   {
     tag: "ESTRATEGIA",
@@ -37,6 +39,7 @@ Adaptamos la herramienta a tu negocio.
 
 Arquitectura clara.
 Decisiones técnicas con sentido.`,
+    cta: "¿Por qué lo genérico falla?",
   },
   {
     tag: "FUTURO",
@@ -47,6 +50,7 @@ y criterio tecnológico desde la base.
 
 No para consumir tecnología.
 Para crearla.`,
+    cta: "¿Qué pasa si no se corrige ahora?",
   },
 ];
 
@@ -66,6 +70,14 @@ export default function Who() {
   return (
     <section className="relative z-10">
       <div className="container mx-auto px-4">
+            {/* Intro */}
+        <div className="mt-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-15">
+            La tecnología no es el problema.
+            <br />
+            <span className={titleClass}>La improvisación sí.</span>
+          </h2>
+        </div>
         {/* Banner */}
         <div className="relative mb-16 text-center">
           <Image
@@ -75,24 +87,15 @@ export default function Who() {
             height={200}
             className="w-full h-[100px] object-cover rounded-xl opacity-25  fade-all-edges"
             priority
-          />
+            />
           <h1 className="absolute inset-0 flex items-center justify-center px-6 text-center text-white font-bold leading-tight text-[clamp(1.5rem,3vw,1.5rem)]">
             “La mayoría de los negocios no tienen un problema digital.
             <br /> Tienen un problema de enfoque.”
           </h1>
         </div>
 
-        {/* Intro */}
-        <div className="max-w-4xl mx-auto text-center mb-10">
-          <p className="lg:text-xl md:text-xl font-medium text-body-color dark:text-body-color-dark">
-            Páginas que no convierten, sistemas que no escalan y decisiones
-            tecnológicas sin dirección.
-            <br />
-            <span className="font-bold">
-              Nada de eso se soluciona improvisando.
-            </span>
-          </p>
-        </div>
+
+        
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -142,8 +145,22 @@ export default function Who() {
                     </div>
                   </div>
 
-                  <p className="mt-4 text-sm text-blue-500 font-medium">
-                    {isOpen ? "Ocultar detalle ↑" : "Ver cómo lo resolvemos →"}
+                  <p className="mt-4 text-sm font-medium text-blue-500 inline-flex items-center gap-2 group">
+                    {isOpen ? (
+                      <>
+                        Ocultar
+                        <span className="transition-transform duration-300 group-hover:-translate-y-1.5">
+                          ↑
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        {card.cta}
+                        <span className="transition-transform duration-300 group-hover:translate-x-2">
+                          →
+                        </span>
+                      </>
+                    )}
                   </p>
                 </div>
               </div>
@@ -152,16 +169,27 @@ export default function Who() {
         </div>
 
         {/* CTA final */}
-        <div className="mt-24 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            La tecnología no es el problema.
+        <div className="max-w-4xl mx-auto text-center mt-15 mb-10">
+          <p className="lg:text-xl md:text-xl font-medium text-body-color dark:text-body-color-dark">
+            Páginas que no convierten, sistemas que no escalan y decisiones
+            tecnológicas sin dirección.
             <br />
-            <span className={titleClass}>La improvisación sí.</span>
-          </h2>
-
-          <p className="mt-6 text-lg font-medium text-blue-500 cursor-pointer hover:underline">
-            Analizar tu escenario →
+            <span className="font-bold">
+              Nada de eso se soluciona improvisando.
+            </span>
           </p>
+        </div>  
+
+        <div className="mt-0 text-center">
+          <a
+              href="#contact"
+              className="inline-flex items-center gap-3 text-xl font-medium text-blue-500 group"
+              >
+              Analizar tu escenario 
+              <span className="transition-transform duration-300 group-hover:translate-x-2">
+                →
+              </span>
+            </a>
         </div>
       </div>
 

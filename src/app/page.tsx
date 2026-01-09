@@ -13,6 +13,7 @@ import Who from "@/components/Who";
 import Video from "@/components/Who";
 import { Metadata } from "next";
 import MindsetSection from "@/components/Mindset/MindsetSection";
+import Services from "@/components/Services/Services";
 
 export const metadata: Metadata = {
   title: "RDS - Reliable Develoment Software",
@@ -28,8 +29,8 @@ export default function Home() {
       <Who />   
       <MindsetSection />
       <Features />
+      <Services />
       {/*<Construction />
-      <AboutSectionTwo />
       {/*<Blog />
       <Testimonials />
       <Pricing />

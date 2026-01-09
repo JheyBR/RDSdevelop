@@ -4,12 +4,25 @@ import featuresData from "./featuresData";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import {
+  Search,
+  Layers,
+  Code2,
+  RefreshCcw,
+} from "lucide-react";
 
 const Features = () => {
   const [active, setActive] = useState(0);
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [openDetail, setOpenDetail] = useState(false);
+  
+  const stepIcons = [
+                      Search,      // Diagnóstico
+                      Layers,      // Arquitectura
+                      Code2,       // Desarrollo
+                      RefreshCcw,  // Iteración
+                    ];
 
   useEffect(() => setMounted(true), []);
   const currentTheme = mounted ? theme : "dark";
@@ -42,7 +55,7 @@ hay decisiones que
             priority
           />
           <h2 className="absolute inset-0 flex items-center justify-center px-6 text-center text-white font-bold leading-tight text-[clamp(1.5rem,3vw,1.5rem)]">
-            Cómo trabajamos
+            ¿Cómo trabajamos?
           <br />Diseñamos sistemas con intención. Sin improvisación.
           </h2>
 
@@ -109,39 +122,50 @@ hay decisiones que
           </div>
 
           {/* RIGHT — Dynamic Panel */}
-          <div className="group relative rounded-2xl border border-blue-500/40 
-            bg-white/80 dark:bg-[#181a2a]/80 p-10 
-            transition-all duration-300
-            hover:shadow-xl">
+          <div className="flex flex-col justify-center items-center relative z-10">
+            {/* Icon */}
+            <div className="mb-6 flex justify-start">
+              <div className=" text-blue-400">
+                {(() => {
+                  const Icon = stepIcons[active];
+                  return <Icon size={90} strokeWidth={1.5} />;
+                })()}
+              </div>
+            </div>            
+            <div className="group relative rounded-xl border border-blue-500/40 
+              bg-white/80 dark:bg-[#181a2a]/80 p-10 
+              transition-all duration-300
+              hover:shadow-xl">
 
-            <div
-              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition"
-              style={{
-                filter: "blur(40px)",
-                background:
-                  "radial-gradient(circle at bottom, rgba(53,92,255,0.25), transparent 70%)",
-              }}
-            />  
+              <div
+                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition"
+                style={{
+                  filter: "blur(40px)",
+                  background:
+                    "radial-gradient(circle at bottom, rgba(53,92,255,0.25), transparent 70%)",
+                }}
+              />  
+              
+              <h3 className="text-3xl font-bold text-black dark:text-white mb-6">
+                {featuresData[active].title}
+              </h3>
 
-            <h3 className="text-3xl font-bold text-black dark:text-white mb-6">
-              {featuresData[active].title}
-            </h3>
+              <p className="text-lg text-body-color leading-relaxed mb-10">
+                {featuresData[active].paragraph}
+              </p>
 
-            <p className="text-lg text-body-color leading-relaxed mb-10">
-              {featuresData[active].paragraph}
-            </p>
-
-            <p className="text-sm uppercase tracking-widest text-blue-500/70">
-              {active === 0 && "El software sin contexto es solo gasto."}
-              {active === 1 && "La tecnología sin estrategia no escala."}
-              {active === 2 && "El código también comunica orden."}
-              {active === 3 && "Lo estable también evoluciona."}
-            </p>
+              <p className="text-sm uppercase tracking-widest text-blue-500/70">
+                {active === 0 && "El software sin contexto es solo gasto."}
+                {active === 1 && "La tecnología sin estrategia no escala."}
+                {active === 2 && "El código también comunica orden."}
+                {active === 3 && "Lo estable también evoluciona."}
+              </p>
+            </div>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-28 text-center">
+        <div className="mt-15 text-center">
           <p className="text-3xl font-semibold text-black dark:text-white mb-4">
             ¿Tu sistema necesita orden?
           </p>

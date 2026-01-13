@@ -171,7 +171,7 @@ const Footer = () => {
                 <ul>
                   <li>
                     <Link
-                      href="/blog"
+                      href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Desarrollo Web
@@ -187,7 +187,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/about"
+                      href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       WIS - SaaS
@@ -204,7 +204,7 @@ const Footer = () => {
             <p className="text-xs text-center text-base text-body-color dark:text-white">
               Desarrollado por 
               <a
-                href="http://rdsdevelop.com"
+                href="/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
@@ -213,7 +213,7 @@ const Footer = () => {
               </a>
               -
               <a
-                href="http://rdsdevelop.com"
+                href="/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"

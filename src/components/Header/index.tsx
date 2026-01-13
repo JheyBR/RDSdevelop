@@ -73,7 +73,7 @@ const Header = () => {
                   <LogoOficial color2={color2} color3={color3}  />
                 </Link>
             </div>
-            <div className="flex w-full items-center justify-between px-4">
+            <div className="flex w-full justify-end px-4">
               <div>
                 <button
                   onClick={navbarToggleHandler}
@@ -172,7 +172,8 @@ const Header = () => {
                 >Registrate
                 </Link>*/}
                 <div>
-                  <ThemeToggler />
+                  <div></div>
+                  {/*<ThemeToggler />*/}
                 </div>
               </div>
             </div>

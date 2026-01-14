@@ -134,7 +134,7 @@ export default function Services() {
                 <button
                   key={service.id}
                   onClick={() => setActiveService(index)}
-                  className={`group relative overflow-hidden rounded-xl border p-6 text-left transition-all
+                  className={`group relative overflow-hidden rounded-xl border p-4 text-left transition-all
                     ${
                       activeService === index
                         ? "border-blue-500 bg-blue-500/10"

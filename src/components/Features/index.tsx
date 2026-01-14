@@ -39,7 +39,7 @@ const Features = () => {
           </h2>
         </div>
         {/* Header */}
-        <div className="relative mb-16 text-center">
+        <div className="relative mb-5 text-center">
           <Image
             src="/images/Who/BannerPC.jpeg"
             alt="Equipo RDS"
@@ -55,9 +55,20 @@ const Features = () => {
 
         </div>
 
-        <div className="mb-20 text-center">
+        {/* Icon */}
+        <div className="mb-6  flex justify-center items-center">
           
-        </div>
+  
+          <div className=" text-blue-400">
+            {(() => {
+              const Icon = stepIcons[active];
+              return <Icon 
+                        className="w-[40px] h-[40px] md:w-[70px] sm:h-[70px] lg:w-[90px] lg:h-[90px]"
+                        strokeWidth={1.5}
+                      /> 
+            })()}
+          </div>
+        </div> 
 
         {/* Layout */}
         <div className="grid grid-cols-2 lg:grid-cols-2  gap-16 items-start">
@@ -117,18 +128,7 @@ const Features = () => {
 
           {/* RIGHT — Dynamic Panel */}
           <div className="flex flex-col justify-center items-center relative z-10">
-            {/* Icon */}
-            <div className="mb-6 flex justify-start">
-              <div className=" text-blue-400">
-                {(() => {
-                  const Icon = stepIcons[active];
-                  return <Icon 
-                            className="w-[40px] h-[40px] md:w-[70px] sm:h-[70px] lg:w-[90px] lg:h-[90px]"
-                            strokeWidth={1.5}
-                          /> 
-                })()}
-              </div>
-            </div>            
+                       
             <div className="group relative rounded-xl border border-blue-500/40 
               bg-white/80 dark:bg-[#181a2a]/80 p-10 
               transition-all duration-300

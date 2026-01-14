@@ -41,7 +41,7 @@ const Features = () => {
         {/* Header */}
         <div className="relative mb-16 text-center">
           <Image
-            src="/images/who/BannerPC.jpeg"
+            src="/images/Who/BannerPC.jpeg"
             alt="Equipo RDS"
             width={1920}
             height={200}
@@ -60,7 +60,7 @@ const Features = () => {
         </div>
 
         {/* Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-2 lg:grid-cols-2  gap-16 items-start">
 
           {/* LEFT — Steps */}
           <div className="relative pl-8">
@@ -96,7 +96,7 @@ const Features = () => {
                 {/* Text */}
                 <div className="relative z-10 flex gap-4 items-start">
                   {/* Number */}
-                  <span className="text-4xl font-bold text-blue-500/10 select-none">
+                  <span className="lg:text-4xl md:text-4xl text-4xl font-bold text-blue-500/10 select-none">
                     0{index + 1}
                   </span>
 
@@ -106,7 +106,7 @@ const Features = () => {
                       PASO
                     </p>
 
-                    <h3 className="text-lg font-semibold text-black dark:text-white">
+                    <h3 className="lg:text-xl md:text-md text-sm font-semibold text-black dark:text-white">
                       {feature.title}
                     </h3>
                   </div>
@@ -122,7 +122,10 @@ const Features = () => {
               <div className=" text-blue-400">
                 {(() => {
                   const Icon = stepIcons[active];
-                  return <Icon size={90} strokeWidth={1.5} />;
+                  return <Icon 
+                            className="w-[40px] h-[40px] md:w-[70px] sm:h-[70px] lg:w-[90px] lg:h-[90px]"
+                            strokeWidth={1.5}
+                          /> 
                 })()}
               </div>
             </div>            

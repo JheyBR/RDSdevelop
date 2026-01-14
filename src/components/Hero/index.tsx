@@ -133,7 +133,7 @@ const Hero = () => {
         </div>
        
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 mb-0">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 mb-10 mt-10">
           {/* Logo RDS */}
           <div className="flex-shrink-0 mt-5 flex justify-center order-1 md:order-none relative">
             {/* Animated logo visible si aún no se ocultó */}
@@ -154,16 +154,23 @@ const Hero = () => {
               </div>  
           </div>              
         </div>
-        {/* Botón de contacto */}   
-        <div className="flex flex-col  justify-center items-center gap-4 lg:gap-8 mt-15 mb-10">
-          <button className="inline-flex max-w-fit items-center justify-center text-sm rounded-lg bg-primary px-5 py-2 font-medium text-white shadow-submit duration-300 hover:bg-primary/70 hover:font-bold hover:text-3md dark:shadow-submit-dark">
-          🔥 Hablemos de tu proyecto
-          </button>
-          <p className="text-body-color dark:text-body-color-dark text-sm">
-           Sin compromiso · Te ayudamos a definir la mejor solución
+        {/* Botón de contacto */}
+        {/* CTA */}
+        <div className="mt-25 text-center mb-20">
+          <p className="text-3xl font-semibold text-black dark:text-white mb-4">
+            🔥 Hablemos de tu proyecto
           </p>
-        </div>
-        
+
+          <a
+            href="https://api.whatsapp.com/send?phone=+573507535369&text=Hola%20Quiero%20que%20hablemos%20sobre%20mi%20proyecto%20y%20las%20necesidades%20del%20mismo..."
+            className="inline-flex items-center gap-3 text-xl font-medium text-blue-500 group"
+          >
+            Sin compromiso · Te ayudamos a definir la mejor solución
+            <span className="transition-transform duration-300 group-hover:translate-x-2">
+              →
+            </span>
+          </a>
+        </div>          
       </div>
 
       <BackgroundSVG />

@@ -4,12 +4,7 @@ import featuresData from "./featuresData";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import {
-  Search,
-  Layers,
-  Code2,
-  RefreshCcw,
-} from "lucide-react";
+import { Search, Layers, Code2, RefreshCcw } from 'lucide-react';
 
 const Features = () => {
   const [active, setActive] = useState(0);
@@ -38,8 +33,7 @@ const Features = () => {
         {/* Intro */}
         <div className="mt-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-15">
-            Antes de escribir una línea de código,
-hay decisiones que
+            Antes de escribir una línea de código, hay decisiones que
             <br />
             <span className={titleClass}> no se pueden saltar.</span>
           </h2>
@@ -171,7 +165,7 @@ hay decisiones que
           </p>
 
           <a
-            href="#contact"
+            href="https://api.whatsapp.com/send?phone=+573507535369&text=Hola%20Quiero%20que%20hablemos%20sobre%20mi%20proyecto%20y%20las%20necesidades%20del%20mismo..."
             className="inline-flex items-center gap-3 text-xl font-medium text-blue-500 group"
           >
             Iniciemos una conversación

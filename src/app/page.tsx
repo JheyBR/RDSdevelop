@@ -30,9 +30,9 @@ export default function Home() {
       <MindsetSection />
       <Features />
       <Services />
+      <Testimonials />
       {/*<Construction />
       {/*<Blog />
-      <Testimonials />
       <Pricing />
       <Contact />*/}
     </>

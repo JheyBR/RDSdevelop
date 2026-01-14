@@ -68,10 +68,10 @@ export default function Who() {
       : "text-[#355CFF]";
 
   return (
-    <section className="relative z-10">
-      <div className="container mx-auto px-4">
+    <section className="relative z-10 mt-10">
+      <div className="container mx-auto px-4 mt-10">
             {/* Intro */}
-        <div className="mt-10 text-center">
+        <div className="mt-20 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-15">
             La tecnología no es el problema.
             <br />
@@ -182,7 +182,7 @@ export default function Who() {
 
         <div className="mt-0 text-center">
           <a
-              href="#contact"
+              href="https://api.whatsapp.com/send?phone=+573507535369&text=Hola%20Quiero%20que%20hablemos%20sobre%20mi%20proyecto%20y%20las%20necesidades%20del%20mismo..."
               className="inline-flex items-center gap-3 text-xl font-medium text-blue-500 group"
               >
               Analizar tu escenario 

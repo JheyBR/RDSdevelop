@@ -35,3 +35,4 @@ yarn-error.log*
 /.cache
 /Usersusuarionpm-cache
 /Usersusuarioyarn-cache 
+echo "Usersusuarionpm-cache/" >> .gitignore

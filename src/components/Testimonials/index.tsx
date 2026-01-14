@@ -57,7 +57,7 @@ const Testimonials = () => {
         {/* Header */}
         <div className="relative mb-16 text-center">
           <Image
-            src="/images/who/BannerPC.jpeg"
+            src="/images/Who/BannerPC.jpeg"
             alt="Equipo RDS"
             width={1920}
             height={200}

@@ -41,7 +41,7 @@ const Features = () => {
         {/* Header */}
         <div className="relative mb-16 text-center">
           <Image
-            src="/images/who/BannerPC.jpeg"
+            src="/images/Who/BannerPC.jpeg"
             alt="Equipo RDS"
             width={1920}
             height={200}
@@ -122,7 +122,10 @@ const Features = () => {
               <div className=" text-blue-400">
                 {(() => {
                   const Icon = stepIcons[active];
-                  return <Icon size={90} strokeWidth={1.5} />;
+                  return <Icon 
+                            className="w-[40px] h-[40px] md:w-[70px] sm:h-[70px] lg:w-[90px] lg:h-[90px]"
+                            strokeWidth={1.5}
+                          /> 
                 })()}
               </div>
             </div>            

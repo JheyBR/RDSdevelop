@@ -8,7 +8,8 @@ const teamData = [
   {
     id: 1,
     name: "Jheison Barbosa",
-    role: "Ingeniería de Proyectos · Frontend · DevOps",
+    job: "Ingeniero Electrónico",
+    role: "Gestión de Proyectos · Frontend · DevOps",
     description:
       "Conecta las necesidades del negocio con soluciones bien diseñadas. Lidera la comunicación, cuida la experiencia visual y asegura despliegues estables.",
     highlights: [
@@ -16,12 +17,13 @@ const teamData = [
       "Frontend moderno",
       "Infraestructura y DevOps",
     ],
-    image: "/images/team/jheisonB.png",
+    image: "/images/team/jheisonbr.png",
   },
   { 
     id: 2,
     name: "Luis Toncel",
-    role: "Ingeniería de Sistemas · Arquitectura de Software",
+    job: "Ingeniero de Sistemas",
+    role: "Bases de Datos · Arquitectura de Software",
     description:
       "Diseña la arquitectura que sostiene todo el sistema, garantizando escalabilidad, seguridad y crecimiento sin reprocesos.",
     highlights: [
@@ -34,7 +36,8 @@ const teamData = [
   {
     id: 3,
     name: "Leidi Lizcano",
-    role: "Backend · Bases de Datos · Atención al Cliente",
+    job: "Desarolladora Backend",
+    role: " Bases de Datos · Soporte & Atención al Cliente",
     description:
       "Desarrolla la lógica del sistema y acompaña al cliente durante todo el proceso, asegurando seguimiento y soporte continuo.",
     highlights: [
@@ -73,7 +76,7 @@ const Team = () => {
         {/* Header */}
         <div className="relative mb-16 text-center">
           <Image
-            src="/images/who/BannerPC.jpeg"
+            src="/images/Who/BannerPC.jpeg"
             alt="Equipo RDS"
             width={1920}
             height={200}
@@ -86,7 +89,7 @@ const Team = () => {
         </div>
 
         {/* Cards */}
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-1 lg:grid-cols-3">
           {teamData.map((member) => (
             <div
               key={member.id}
@@ -104,14 +107,26 @@ const Team = () => {
 
               {/* Avatar */}
               <div className="relative z-10 mb-6 flex justify-center">
-                <div className="h-28 w-28 overflow-hidden rounded-full border border-blue-500/40">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    width={200}
-                    height={150}
-                    className="h-full w-full object-cover"
+                <div className="relative">
+                  {/* Glow azul */}
+                  <div
+                    className="absolute inset-0 rounded-xl blur-xl"
+                    style={{
+                      background:
+                        "radial-gradient(circle, rgba(74,108,247,0.45), transparent 70%)",
+                    }}
                   />
+
+                  {/* Marco */}
+                  <div className="relative h-36 w-36 overflow-hidden rounded-xl border border-blue-500/40 bg-[#0E1323] shadow-lg">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={300}
+                      height={300}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -120,6 +135,9 @@ const Team = () => {
                 <h3 className="text-xl font-bold text-white">
                   {member.name}
                 </h3>
+                <p className="mt-1 text-sm text-blue-400">
+                  {member.job}
+                </p>
                 <p className="mt-1 text-sm text-body-color">
                   {member.role}
                 </p>

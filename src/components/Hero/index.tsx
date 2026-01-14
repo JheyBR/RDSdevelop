@@ -138,13 +138,13 @@ const Hero = () => {
           <div className="flex-shrink-0 mt-5 flex justify-center order-1 md:order-none relative">
             {/* Animated logo visible si aún no se ocultó */}
             {!hideAnimated && (
-              <div className="absolute top-1 left-0 w-[550px] h-auto z-10 transition-opacity duration-500">
+              <div className="absolute top-4 md:top-0 lg:top-0 left-20 md:left-0 lg:left-0 w-[400px] md:w-[550px] lg:w-[600px] h-auto z-10 transition-opacity duration-500">
                 <AnimatedLogoSVG />
               </div>
             )}
             {/* Logo final aparece encima al terminar animación */}
               {showFinalLogo && (
-                <div className="absolute top-12 left-0 w-[510px] h-auto z-20 transition-opacity duration-500">
+                <div className="absolute top-12 left-20 md:left-0 lg:left-0 w-[370px] md:w-[510px] lg:w-[560px] h-auto z-20 transition-opacity duration-500">
                   <LogoOficial color2={color2} color3={color3} />
                 </div>
               )}

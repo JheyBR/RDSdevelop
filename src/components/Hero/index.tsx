@@ -72,7 +72,7 @@ const Hero = () => {
   const textClass =
   currentTheme === "dark"
     ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400"
-    : "text-[#35f]";
+    : "text-[white]";
 
   const [showFinalLogo, setShowFinalLogo] = useState(false);
   const [hideAnimated, setHideAnimated] = useState(false);

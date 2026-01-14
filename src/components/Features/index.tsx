@@ -71,22 +71,23 @@ const Features = () => {
         </div> 
 
         {/* Layout */}
-        <div className="grid grid-cols-2 lg:grid-cols-2  gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-16 items-start">
 
           {/* LEFT — Steps */}
-          <div className="relative pl-8">
-            <span className="absolute left-3 top-0 h-full w-px bg-blue-500/20" />
+          <div className="grid grid-cols-4 md:grid-cols-1 lg:grid-cols-1 relative pl-4">
+            <span className="absolute left-3 top-0 w-px bg-blue-500/20" />
 
             {featuresData.slice(0, 4).map((feature, index) => (
               <button
                 key={feature.id}
                 onClick={() => setActive(index)}
-                className={`group relative mb-8 w-full text-left rounded-xl border 
+                className={`group relative mr-5 my-1 md:my-2 lg:my-4 text-left rounded-xl border 
                 border-blue-500/40 bg-white/80 dark:bg-[#181a2a]/80 
-                p-4  transition-all duration-300
+                p-1 transition-all duration-300
                 hover:-translate-y-1 hover:shadow-xl
                 ${active === index ? "ring-2 ring-blue-500/60" : ""}`}
               >
+                {/* Glow */}
                 <div
                   className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition"
                   style={{
@@ -95,29 +96,20 @@ const Features = () => {
                       "radial-gradient(circle at bottom, rgba(53,92,255,0.25), transparent 70%)",
                   }}
                 />
-                {/* Dot */}
-                <span
-                  className={`mt-2 h-3 w-3 rounded-full transition-all ${
-                    active === index
-                      ? "bg-blue-500 scale-125"
-                      : "bg-blue-500/40"
-                  }`}
-                />
 
-                {/* Text */}
-                <div className="relative z-10 flex gap-4 items-start">
-                  {/* Number */}
-                  <span className="lg:text-4xl md:text-4xl text-4xl font-bold text-blue-500/10 select-none">
+                {/* Content */}
+                <div className="relative z-10 flex justify-center md:justify-start gap-4 items-center">
+                  <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-500/80">
                     0{index + 1}
                   </span>
 
                   {/* Text */}
-                  <div>
+                  <div className="hidden md:block">
                     <p className="text-xs tracking-widest text-blue-500 font-bold mb-1">
                       PASO
                     </p>
 
-                    <h3 className="lg:text-xl md:text-md text-sm font-semibold text-black dark:text-white">
+                    <h3 className="text-md lg:text-xl font-semibold text-black dark:text-white">
                       {feature.title}
                     </h3>
                   </div>
@@ -126,11 +118,12 @@ const Features = () => {
             ))}
           </div>
 
+
           {/* RIGHT — Dynamic Panel */}
-          <div className="flex flex-col justify-center items-center relative z-10">
+          <div className="flex flex-col justify-center items-center relative z-10 mt-4">
                        
             <div className="group relative rounded-xl border border-blue-500/40 
-              bg-white/80 dark:bg-[#181a2a]/80 p-10 
+              bg-white/80 dark:bg-[#181a2a]/80 p-5 
               transition-all duration-300
               hover:shadow-xl">
 

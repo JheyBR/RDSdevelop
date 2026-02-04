@@ -7,12 +7,12 @@ const menuData: Menu[] = [
     path: "/",
     newTab: false,
   },
-  //{
-  //  id: 2,
-  //  title: "¿Que es RDS?",
-  //  path: "/",
-  //  newTab: false,
-  //},
+  {
+    id: 2,
+    title: "RDS Kids",
+    path: "/rds-Kids",
+    newTab: false,
+  },
   //{
   //  id: 3,
   //  title: "Servicios",

@@ -1,8 +1,7 @@
 // src/app/roblox/level-2/page.tsx
 "use client";
 
-import LevelPage from '../../components/rdsKids/LevelPage';
-
+import LevelPage from '../../../components/rdsKids/LevelPage';
 export default function RobloxLevel2Page() {
   return (
     <LevelPage 

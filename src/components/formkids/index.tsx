@@ -125,47 +125,52 @@ export default function FormuKids() {
             <input type="text" name="apellido2" value={formData.apellido2} onChange={handleChange} placeholder="Segundo Apellido"  className="p-3 rounded-lg border border-blue-500/40" />
 
          
-              <select
-                name="grado"
-                value={formData.grado}
-                onChange={handleChange}
-                required
-                className="p-3 rounded-lg border border-blue-500/40 bg-black text-white appearance-none"
-              >
-              <option value="">Seleccione grado</option>
-                <option value="Primaria">4A Primaria</option>
-                <option value="Primaria">4B Primaria</option>
-                <option value="Primaria">5A Primaria</option>
-                <option value="Primaria">5B Primaria</option>
-                <option value="Bachillerato">6A Bachillerato</option>
-                <option value="Bachillerato">6B Bachillerato</option>
-                <option value="Bachillerato">7A Bachillerato</option>
-                <option value="Bachillerato">7B Bachillerato</option>
-                <option value="Bachillerato">8A Bachillerato</option>
-                <option value="Bachillerato">8B Bachillerato</option>
-                <option value="Bachillerato">9A Bachillerato</option>
+             <select
+              name="grado"
+              value={formData.grado}
+              onChange={handleChange}
+              required
+              className="p-3 rounded-lg border border-blue-500/40 bg-white dark:bg-[#181a2a] text-gray-900 dark:text-white appearance-none cursor-pointer text-base min-h-[48px] w-full"
+              style={{ fontSize: '16px' }} /* Evita zoom automático en iOS */
+            >
+              <option value="" className="text-gray-500">Seleccione grado</option>
+              <option value="4A Primaria" className="py-2">4A Primaria</option>
+              <option value="4B Primaria" className="py-2">4B Primaria</option>
+              <option value="5A Primaria" className="py-2">5A Primaria</option>
+              <option value="5B Primaria" className="py-2">5B Primaria</option>
+              <option value="6A Bachillerato" className="py-2">6A Bachillerato</option>
+              <option value="6B Bachillerato" className="py-2">6B Bachillerato</option>
+              <option value="7A Bachillerato" className="py-2">7A Bachillerato</option>
+              <option value="7B Bachillerato" className="py-2">7B Bachillerato</option>
+              <option value="8A Bachillerato" className="py-2">8A Bachillerato</option>
+              <option value="8B Bachillerato" className="py-2">8B Bachillerato</option>
+              <option value="9A Bachillerato" className="py-2">9A Bachillerato</option>
             </select>
 
             <input type="tel" name="telefono" value={formData.telefono} onChange={handleChange} placeholder="Teléfono" required className="p-3 rounded-lg border border-blue-500/40" />
 
             <select
-                name="programa"
-                value={formData.programa}
-                onChange={handleChange}
-                disabled={!formData.grado}
-                required
-                className="p-3 rounded-lg bg-transparent border border-blue-500/40 focus:outline-none"
-              >
-                <option value="">Programa disponible</option>
+              name="programa"
+              value={formData.programa}
+              onChange={handleChange}
+              disabled={!formData.grado}
+              required
+              className="p-3 rounded-lg border border-blue-500/40 bg-white dark:bg-[#181a2a] text-gray-900 dark:text-white appearance-none cursor-pointer text-base min-h-[48px] w-full disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ fontSize: '16px' }} /* Evita zoom automático en iOS */
+            >
+              <option value="" className="text-gray-500">Programa disponible</option>
 
-                {formData.grado === "Primaria" && (
-                  <option value="scratch">Scratch</option>
-                )}
+              {formData.grado?.includes("Primaria") && (
+                <option value="scratch" className="py-2">Scratch</option>
+              )}
 
-                {formData.grado === "Bachillerato" && (
-                  <option value="roblox">Roblox Studio (Lua)</option>
-                )}
-              </select>
+              {formData.grado?.includes("Bachillerato") && (
+                <>
+                  <option value="roblox" className="py-2">Roblox Studio (Lua)</option>
+                  <option value="python" className="py-2">Python</option>
+                </>
+              )}
+            </select>
 
               
             {formData.grado === "Bachillerato" && (

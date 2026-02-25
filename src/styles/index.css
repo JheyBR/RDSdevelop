@@ -192,3 +192,8 @@ layer(base);
   -webkit-text-stroke: 1px #0303b5; /* ancho y color del borde */
   text-stroke: 20px #0303b5;
 }
+
+select option {
+  background-color: #000;
+  color: #fff;
+}

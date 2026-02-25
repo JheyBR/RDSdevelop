@@ -82,40 +82,39 @@ export default function FormuKids() {
   
           {/* Logo RDS Kids */}
           
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+            <div className="flex justify-center mb-8">
+              <Image
+                src="/images/kids.png"
+                alt="RDS Kids Logo"
+                width={500}
+                height={250}
+                className="w-40 md:w-56 lg:w-64 object-contain"
+                priority
+              />
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold leading-tight">
+              Formamos creadores de tecnología.
+              <br />
+              <span className={titleClass}>
+                No solo consumidores digitales.
+              </span>
+            </h1>
 
-          <h1 className="text-3xl md:text-4xl font-bold leading-tight">
-            Formamos creadores de tecnología.
-            <br />
-            <span className={titleClass}>
-              No solo consumidores digitales.
-            </span>
-          </h1>
-
-          <div className="flex justify-center mb-8">
-            <Image
-              src="/images/kids.png"
-              alt="RDS Kids Logo"
-              width={500}
-              height={250}
-              className="w-40 md:w-56 lg:w-64 object-contain"
-              priority
-            />
+            
           </div>
 
           <p className="mt-6 max-w-3xl mx-auto">
             RDS Kids es una academia de programación y desarrollo de videojuegos diseñada para que los colegios, en articulación con RDS, fortalezcan el pensamiento lógico, analítico y creativo de sus estudiantes. 
           </p>
 
-          <p className="mt-6 max-w-3xl mx-auto">
-            Nuestro objetivo es sentar las bases tecnológicas necesarias para que, en el futuro, puedan potenciar sus habilidades en el mundo del desarrollo de software.
-          </p>
 
         </div>
 
         {/* FORMULARIO */}
         <div className="bg-white/80 dark:bg-[#181a2a]/80 border border-blue-500/30 rounded-xl p-8 mb-20 shadow-lg">
           <h2 className={`text-2xl font-bold mb-6 ${titleClass}`}>
-            Formulario de Preinscripción
+            Formulario de Preinscripción -  Centro Educativo Edad Feliz
           </h2>
 
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -126,13 +125,13 @@ export default function FormuKids() {
             <input type="text" name="apellido2" value={formData.apellido2} onChange={handleChange} placeholder="Segundo Apellido"  className="p-3 rounded-lg border border-blue-500/40" />
 
          
-            <select
-              name="grado"
-              value={formData.grado}
-              onChange={handleChange}
-              required
-              className="p-3 rounded-lg border border-blue-500/40"
-            >
+              <select
+                name="grado"
+                value={formData.grado}
+                onChange={handleChange}
+                required
+                className="p-3 rounded-lg border border-blue-500/40 bg-black text-white appearance-none"
+              >
               <option value="">Seleccione grado</option>
                 <option value="Primaria">4A Primaria</option>
                 <option value="Primaria">4B Primaria</option>
@@ -196,6 +195,11 @@ export default function FormuKids() {
           </form>
         </div>
         <div className="mt-20 mb-24">
+
+          
+          <p className="mt-6 mb-16 max-w-3xl mx-auto">
+            Nuestro objetivo es sentar las bases tecnológicas necesarias para que, en el futuro, puedan potenciar sus habilidades en el mundo del desarrollo de software.
+          </p>
 
           {/* TÍTULO PRINCIPAL */}
           <div className="text-center mb-16">

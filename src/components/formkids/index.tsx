@@ -121,9 +121,9 @@ export default function FormuKids() {
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Primer Nombre" required className="p-3 rounded-lg border border-blue-500/40" />
-            <input type="text" name="nombre2" value={formData.nombre2} onChange={handleChange} placeholder="Segundo Nombre" required className="p-3 rounded-lg border border-blue-500/40" />
+            <input type="text" name="nombre2" value={formData.nombre2} onChange={handleChange} placeholder="Segundo Nombre" className="p-3 rounded-lg border border-blue-500/40" />
             <input type="text" name="apellido" value={formData.apellido} onChange={handleChange} placeholder="Primer Apellido" required className="p-3 rounded-lg border border-blue-500/40" />
-            <input type="text" name="apellido2" value={formData.apellido2} onChange={handleChange} placeholder="Segundo Apellido" required className="p-3 rounded-lg border border-blue-500/40" />
+            <input type="text" name="apellido2" value={formData.apellido2} onChange={handleChange} placeholder="Segundo Apellido"  className="p-3 rounded-lg border border-blue-500/40" />
 
          
             <select

@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export", // <-- esto permite usar `next export`
+  output: "export",
+  trailingSlash: true, // ← ¡AÑADE ESTA LÍNEA!
   images: {
     unoptimized: true,
     remotePatterns: [

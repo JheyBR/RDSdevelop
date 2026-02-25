@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import BackgroundSVG2 from "../Componentes/BackgroundSVG2";
+import Image from "next/image";
 
 export default function FormuKids() {
   const { theme } = useTheme();
@@ -76,6 +77,10 @@ export default function FormuKids() {
 
         {/* HERO */}
         <div className="text-center mb-16">
+  
+          {/* Logo RDS Kids */}
+          
+
           <h1 className="text-3xl md:text-4xl font-bold leading-tight">
             Formamos creadores de tecnología.
             <br />
@@ -84,12 +89,25 @@ export default function FormuKids() {
             </span>
           </h1>
 
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/images/kids.png"
+              alt="RDS Kids Logo"
+              width={500}
+              height={250}
+              className="w-40 md:w-56 lg:w-64 object-contain"
+              priority
+            />
+          </div>
+
           <p className="mt-6 max-w-3xl mx-auto">
             RDS Kids es una academia de programación y desarrollo de videojuegos diseñada para que los colegios, en articulación con RDS, fortalezcan el pensamiento lógico, analítico y creativo de sus estudiantes. 
           </p>
+
           <p className="mt-6 max-w-3xl mx-auto">
-             Nuestro objetivo es sentar las bases tecnológicas necesarias para que, en el futuro, puedan potenciar sus habilidades en el mundo del desarrollo de software.
+            Nuestro objetivo es sentar las bases tecnológicas necesarias para que, en el futuro, puedan potenciar sus habilidades en el mundo del desarrollo de software.
           </p>
+
         </div>
 
         {/* FORMULARIO */}
